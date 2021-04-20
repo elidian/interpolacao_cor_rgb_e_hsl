@@ -6,13 +6,13 @@
 
 
 ### function LERP RGB
-'''
+
     @param colorRGB = [red, green, blue]
     @param colorRGB = [red, green, blue]
     @param number
 
     @return colorRGB = [red, green, blue]
-    
+'''    
 function lerp(color1, color2, factor){
     var r = parseInt(color1[0] + (color2[0]-color1[0])*factor);
     var g = parseInt(color1[1] + (color2[1]-color1[1])*factor);
