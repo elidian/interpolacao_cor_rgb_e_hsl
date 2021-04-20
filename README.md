@@ -12,7 +12,7 @@
     @param number
 
     @return colorRGB = [red, green, blue]
-'''    
+```
 function lerp(color1, color2, factor){
     var r = parseInt(color1[0] + (color2[0]-color1[0])*factor);
     var g = parseInt(color1[1] + (color2[1]-color1[1])*factor);
@@ -20,7 +20,7 @@ function lerp(color1, color2, factor){
     
     return rgb = [r, g, b];
 }
-'''
+```
 ### function LERP HSL
 /*
     @param colorHSL = [hue, saturation, ligthless]
@@ -29,7 +29,7 @@ function lerp(color1, color2, factor){
     
     @return colorHSL = [hue, saturation, ligthless]
 */
-'''
+```
 function lerp(color1, color2, factor){
     let h = parseInt(color1[0] + (color2[0]-color1[0])*factor);
     let s = parseInt(color1[1] + (color2[1]-color1[1])*factor);
@@ -39,13 +39,13 @@ function lerp(color1, color2, factor){
     console.log('l: '+l)
     return hsl = [h, s, l];
 }
-'''
+```
 ### function HSL to RGB
 /*
     @param colorHSL = [hue, saturation, ligthless]
     @return colorRGB = [red, green, blue]
 */
-'''
+```
 function hslToRgb(hsl){
     // Must be fractions of 1
     let h = hsl[0];
@@ -80,26 +80,26 @@ function hslToRgb(hsl){
 
     return rgb = [r, g, b];
 }
-'''
+```
 ### function RGB to HSL
 /*
     @param colorRGB = [red, green, blue]
     return stringColorHEX = '#'+hex+hex+hex
 */
-'''
+```
 function rgbToHex (rgb) {   
     var red = intToHex(rgb[0]);
     var green = intToHex(rgb[1]);
     var blue = intToHex(rgb[2]);
     return '#'+red+green+blue;
 }
-'''
+```
 ### function DEC to HEX
 /*
     @param number
     @return numberHEX = hex
 */
-'''
+```
 function intToHex (number) { 
     var hex = Number(number).toString(16);
     if (hex.length < 2) {
@@ -107,6 +107,6 @@ function intToHex (number) {
     }
     return hex;
 }
-'''
+```
 
 END
