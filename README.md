@@ -43,6 +43,7 @@ function lerp(color1, color2, factor){
 ```
 /*
     @param colorHSL = [hue, saturation, ligthless]
+    
     @return colorRGB = [red, green, blue]
 */
 function hslToRgb(hsl){
@@ -84,6 +85,7 @@ function hslToRgb(hsl){
 ```
 /*
     @param colorRGB = [red, green, blue]
+    
     return stringColorHEX = '#'+hex+hex+hex
 */
 function rgbToHex (rgb) {   
@@ -98,6 +100,7 @@ function rgbToHex (rgb) {
 ```
 /*
     @param number
+    
     @return numberHEX = hex
 */
 function intToHex (number) { 
