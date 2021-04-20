@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <title>Computação Gráfica - Trabalho 2 - Atividade Remota</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Atividade remota para a disciplina de Computação Gráfica - Trabalho 2">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Morgana, Valdelice e Elidian">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     </head>
+     <body style="background-color:powderblue;">
+        <header>
+        </header>
+        <section id="main_a">
+            <header style="margin-top: 5px; margin-bottom: 5px;">
+            </header>
+            <article style="margin-top: 10px; margin-bottom: 10px;">
+                <p>Item A) RGB</p>
+                <table border="0" width="100%" cellpadding="10">
+                    <tr>
+                        <td width="50%" valign="top">
+                            <div>
+                                <label for="cor1"></label>Qual a cor do primeiro quadrado?</label>
+                                <p><a>R (0 a 255)</a><input id="r1" type="range" value="0" min="0" max="255" oninput="Atualizar(this.id, this.value)"><a id="demor1">0</a></p>
+                                <p><a>G (0 a 255)</a><input id="g1" type="range" value="0" min="0" max="255" oninput="Atualizar(this.id, this.value)"><a id="demog1">0</a></p>
+                                <p><a>B (0 a 255)</a><input id="b1" type="range" value="0" min="0" max="255" oninput="Atualizar(this.id, this.value)"><a id="demob1">0</a></p>
+                            </div>
+                            <div>
+                                <label for="cor2">Qual a cor do segundo quadrado?</label>
+                                <p><a>R (0 a 255)</a><input id="r2" type="range" value="255" min="0" max="255" oninput="Atualizar(this.id, this.value)"><a id="demor2">255</a></p>
+                                <p><a>G (0 a 255)</a><input id="g2" type="range" value="255" min="0" max="255" oninput="Atualizar(this.id, this.value)"><a id="demog2">255</a></p>
+                                <p><a>B (0 a 255)</a><input id="b2" type="range" value="255" min="0" max="255" oninput="Atualizar(this.id, this.value)"><a id="demob2">255</a></p>
+                            </div>
+                            <div>
+                                <label for="quantity">Qual o número de quadrado internos horizontais? (entre 0 and 100):</label>
+                                <input type="number" id="quantity" value="0" name="quantity" min="0" max="100" oninput="AtualizarQnt()">
+                            </div>
+                        </td>
+                        <td width="50%" valign="top">
+                            <div id="a1">
+                                <canvas id="myCanvas" width="400" height="400" style="background-color:rgb(255, 230, 0)"></canvas>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+        </section>        
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var contexto = canvas.getContext("2d");
+            
+            var r1 = 0, g1 = 0, b1 = 0;
+            var rgb1;
+            var r2 = 255, g2 = 255, b2 = 255;
+            var rgb2;
+            
+            var qnt = 2;
+            var width = 50;
+            var dist = 10; // distancia da lateral
+            var height = 50;
+
+            AtualizarQnt();
+            
+            function Desenhar() {
+                r1 = Number(document.getElementById("r1").value);
+                g1 = Number(document.getElementById("g1").value);
+                b1 = Number(document.getElementById("b1").value);
+                rgb1 = [r1, g1, b1]; // primeira cor RGB
+
+                r2 = Number(document.getElementById("r2").value);
+                g2 = Number(document.getElementById("g2").value);
+                b2 = Number(document.getElementById("b2").value);
+                rgb2 = [r2, g2, b2]; // segunda cor RGB
+                
+                qnt = Number(document.getElementById("quantity").value) + 2; // quantidade de quadrados
+                width = Math.min(50, (canvas.width/qnt)*9/10); // tamanho width de cada quadrado
+                var aux = (canvas.width - 2*dist - qnt*width)/(qnt -1); // distancia entre quadrados
+
+                contexto.beginPath();
+                for(var i = 0; i < qnt; i++){
+                    contexto.fillStyle = rgbToHex(lerp(rgb1, rgb2, i/(qnt-1)));
+                    contexto.fillRect( dist+(aux+width)*i , dist, width, height);
+                }
+                contexto.fill();
+                contexto.closePath();
+            }
+            function LimparTela() {
+                contexto.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            function Atualizar(id, val) {
+                document.getElementById("demo"+id).innerHTML = val;
+                LimparTela();
+                Desenhar();
+            }
+            function AtualizarQnt() {
+                LimparTela();
+                Desenhar();
+            }
+            function lerp(color1, color2, factor){
+                console.log("c1: "+color1[0]);
+                console.log("c2: "+color2[0]);
+                var r = parseInt(color1[0] + (color2[0]-color1[0])*factor);
+                console.log("R: "+r);
+                var g = parseInt(color1[1] + (color2[1]-color1[1])*factor);
+                console.log("R: "+g);
+                var b = parseInt(color1[2] + (color2[2]-color1[2])*factor);
+                console.log("R: "+b);
+                
+                return rgb = [r, g, b];
+            }
+            function rgbToHex (rgb) {   
+                var red = intToHex(rgb[0]);
+                var green = intToHex(rgb[1]);
+                var blue = intToHex(rgb[2]);
+                return '#'+red+green+blue;
+            }
+            function intToHex (number) { 
+                var hex = Number(number).toString(16);
+                if (hex.length < 2) {
+                    hex = "0" + hex;
+                }
+                return hex;
+            };
+        </script>
+     </body>
+  </html>

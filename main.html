@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <title>Computação Gráfica - Trabalho 2 - Atividade Remota</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Atividade remota para a disciplina de Computação Gráfica - Trabalho 2">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Morgana, Valdelice e Elidian">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     </head>
+     <body style="background-color:powderblue;">
+        <header style="margin-top: 5px; margin-bottom: 5px;">
+            <h1 style="text-align:center; color:blueviolet;">
+                Computação Gráfica - Trabalho 2 - Atividade Remota
+            </h1>
+        </header>
+        <section id="main">
+            <header style="margin-top: 5px; margin-bottom: 5px;">
+                <h2 style="color: white; text-align:center;background-color:MediumSeaGreen;">Implementação B</h2>
+                <link rel="stylesheet" type="text/css" href="menu.css">
+            </header>
+            <nav style="margin-top: 10px;">
+                <ul class="menu">
+                    <li><a href="#main" onclick="main()">Página inicial</a></li>
+                    <li><a href="#item A rgb" onclick="main_rgb_a()">Item A) RGB</a></li>
+                    <li><a href="#item A hsl" onclick="main_hsl_a()">Item A) HSL</a></li>
+                    <li><a href="#item B rgb" onclick="main_rgb_b()">Item B) RGB</a></li>
+                    <li><a href="#item B hsl" onclick="main_hsl_b()">Item B) HSL</a></li>
+                    <li><a href="#item C rgb" onclick="main_rgb_c()">Item C) RGB</a></li>
+                    <li><a href="#item C hsl" onclick="main_hsl_c()">Item C) HSL</a></li>
+                    </li>
+                </ul>
+            </nav>
+            <article style="margin-top: 10px; margin-bottom: 10px;">
+                <iframe id="frame" src="trabalho2.pdf" style="width:100%; height:500px;" title="pdf da atividade"></iframe>
+            </article>
+            <footer>
+                <p><h3>Trio: Morgana, Valdelice e Elidian</h3></p>
+            </footer>
+        </section>
+        <script>
+            function main(){
+                document.getElementById("frame").src = "trabalho2.pdf";
+            }
+            function main_rgb_a(){
+                document.getElementById("frame").src = "main_rgb_a.html";
+            }
+            function main_rgb_b(){
+                document.getElementById("frame").src = "main_rgb_b.html";
+            }
+            function main_rgb_c(){
+                document.getElementById("frame").src = "main_rgb_c.html";
+            }
+            function main_hsl_a(){
+                document.getElementById("frame").src = "main_hsl_a.html";
+            }
+            function main_hsl_b(){
+                document.getElementById("frame").src = "main_hsl_b.html";
+            }
+            function main_hsl_c(){
+                document.getElementById("frame").src = "main_hsl_c.html";
+            }
+        </script>
+     </body>
+  </html>

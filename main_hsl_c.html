@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <title>Computação Gráfica - Trabalho 2 - Atividade Remota</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Atividade remota para a disciplina de Computação Gráfica - Trabalho 2">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Morgana, Valdelice e Elidian">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     </head>
+     <body style="background-color:powderblue;">
+        <header>
+        </header>
+        <section id="main_c">
+            <header style="margin-top: 5px; margin-bottom: 5px;">
+            </header>
+            <article style="margin-top: 10px; margin-bottom: 10px;">
+                <p>Item C) HSL</p>
+                <table border="0" width="100%" cellpadding="10">
+                    <tr>
+                        <td width="50%" valign="top">
+                            <table border="0" width="100%" cellpadding="10">
+                                <tr>
+                                    <td width="25%" valign="top">
+                                        <div>
+                                            <label id="cor1"></label>Qual a cor quadrado superior esquerdo?</label>
+                                            <p><a>H (0 a 360)</a><input id="h1" type="range" value="0" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh1">0</a></p>
+                                            <p><a>S (0 a 100)</a><input id="s1" type="range" value="0" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos1">0</a></p>
+                                            <p><a>L (0 a 100)</a><input id="l1" type="range" value="0" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol1">0</a></p>
+                                        </div>
+                                        <div>
+                                            <label id="cor3"></label>Qual a cor quadrado inferior esquerdo?</label>
+                                            <p><a>H (0 a 360)</a><input id="h3" type="range" value="240" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh3">250</a></p>
+                                            <p><a>S (0 a 100)</a><input id="s3" type="range" value="66" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos3">250</a></p>
+                                            <p><a>L (0 a 100)</a><input id="l3" type="range" value="66" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol3">250</a></p>
+                                        </div>
+                                    </td>
+                                    <td width="25%" valign="top">
+                                        <div>
+                                            <label id="cor2"></label>Qual a cor quadrado superior direito?</label>
+                                            <p><a>H (0 a 360)</a><input id="h2" type="range" value="120" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh2">250</a></p>
+                                            <p><a>S (0 a 100)</a><input id="s2" type="range" value="33" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos2">250</a></p>
+                                            <p><a>L (0 a 100)</a><input id="l2" type="range" value="33" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol2">250</a></p>
+                                        </div>
+                                        <div>
+                                            <label id="cor4"></label>Qual a cor quadrado inferior direito?</label>
+                                            <p><a>H (0 a 360)</a><input id="h4" type="range" value="360" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh4">250</a></p>
+                                            <p><a>S (0 a 100)</a><input id="s4" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos4">250</a></p>
+                                            <p><a>L (0 a 100)</a><input id="l4" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol4">250</a></p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div>
+                                <label for="quantity1">Qual o número de quadrado internos verticais? (entre 0 and 100):</label>
+                                <input type="number" id="quantity1" value="0" name="quantity1" min="0" max="100" oninput="AtualizarQnt()">
+                            </div>
+                            <div>
+                                <label for="quantity2">Qual o número de quadrado internos horizontais? (entre 0 and 100):</label>
+                                <input type="number" id="quantity2" value="0" name="quantity2" min="0" max="100" oninput="AtualizarQnt()">
+                            </div>
+                        </td>
+                        <td width="50%" valign="top">
+                            <div id="a1">
+                                <canvas id="myCanvas" width="400" height="400" style="background-color:rgb(255, 230, 0)"></canvas>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+        </section>        
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var contexto = canvas.getContext("2d");
+            
+            var h1 = 0, s1 = 0, l1 = 0;
+            var hsl1; // Cor Superior Esquerdo
+            var h2 = 120, s2 = 33, l2 = 33;
+            var hsl2; // Cor Superior Direito
+            var h3 = 240, s3 = 66, l3 = 66;
+            var hsl1; // Cor Inferior Esquerdo
+            var h4 = 360, s4 = 100, l4 = 100;
+            var hsl4; // Cor Inferior Direito
+
+            var qnt_v = 2; // quantidade quadrados internos na Vertical
+            var qnt_h = 2; // quantidade quadrados internos na Horizontal
+            var width = 50; // tamanho width de cada quadrado
+            var height = 50; // tamanho HEIGTH de cada quadrado
+            var dist = 10; // distancia da lateral
+
+            AtualizarQnt();
+            
+            function Desenhar() {
+                h1 = Number(document.getElementById("h1").value);
+                s1 = Number(document.getElementById("s1").value);
+                l1 = Number(document.getElementById("l1").value);
+                hsl1 = [h1, s1, l1]; // primeira cor HSL
+
+                h2 = Number(document.getElementById("h2").value);
+                s2 = Number(document.getElementById("s2").value);
+                l2 = Number(document.getElementById("l2").value);
+                hsl2 = [h2, s2, l2]; // segunda cor HSL
+
+                h3 = Number(document.getElementById("h3").value);
+                s3 = Number(document.getElementById("s3").value);
+                l3 = Number(document.getElementById("l3").value);
+                hsl3 = [h3, s3, l3]; // terceira cor HSL
+
+                h4 = Number(document.getElementById("h4").value);
+                s4 = Number(document.getElementById("s4").value);
+                l4 = Number(document.getElementById("l4").value);
+                hsl4 = [h4, s4, l4]; // quarta cor HSL
+
+                qnt_v = Number(document.getElementById("quantity2").value) + 2; // quantidade de quadrados na vertical
+                qnt_h = Number(document.getElementById("quantity1").value) + 2; // quantidade de quadrados na horizontal
+                
+                width = Math.min(50, (canvas.width/qnt_v)*9/10); // tamanho width de cada quadrado
+                height = Math.min(50, (canvas.height/qnt_h)*9/10); // tamanho width de cada quadrado
+                
+                var aux_v = (canvas.width - 2*dist - qnt_v*width)/(qnt_v -1); // distancia entre quadrados na vertical
+                var aux_h = (canvas.height - 2*dist - qnt_h*height)/(qnt_h -1); // distancia entre quadrados na horizontal
+
+                contexto.beginPath();
+                // primeiro FOR trabalha com a vertical
+                for(var i = 0; i < qnt_v; i++){
+                    cor_s = lerp(hsl1, hsl2, i/(qnt_v-1));
+                    contexto.fillStyle = rgbToHex(hslToRgb(cor_s));
+                    contexto.fillRect( dist+(aux_v+width)*i , dist, width, height);
+                    
+                    cor_i = lerp(hsl3, hsl4, i/(qnt_v-1));
+                    contexto.fillStyle = rgbToHex(hslToRgb(cor_i));
+                    contexto.fillRect( dist+(aux_v+width)*i , dist+(aux_h+height)*(qnt_h-1), width, height);
+                    
+                    // segundo FOR trabalha com a horizontal
+                    for(var j = 1; j < qnt_h-1; j++){
+                        contexto.fillStyle = rgbToHex(hslToRgb(lerp(cor_s, cor_i, j/(qnt_h-1))));
+                        contexto.fillRect( dist+(aux_v+width)*i , dist+(aux_h+height)*j, width, height);
+                    }
+                }
+                contexto.fill();
+                contexto.closePath();
+            }
+            function LimparTela() {
+                contexto.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            function Atualizar(id, val) {
+                document.getElementById("demo"+id).innerHTML = val;
+                LimparTela();
+                Desenhar();
+            }
+            function AtualizarQnt() {
+                LimparTela();
+                Desenhar();
+            }
+            function lerp(color1, color2, factor){
+                let h = parseInt(color1[0] + (color2[0]-color1[0])*factor);
+                let s = parseInt(color1[1] + (color2[1]-color1[1])*factor);
+                let l = parseInt(color1[2] + (color2[2]-color1[2])*factor);
+                
+                return hsl = [h, s, l];
+            }
+            // @param HSL
+            // @return RGB
+            function hslToRgb(hsl){
+                // Must be fractions of 1
+                let h = hsl[0];
+                let s = hsl[1];
+                let l = hsl[2];
+                s /= 100;
+                l /= 100;
+
+                let c = (1 - Math.abs(2 * l - 1)) * s,
+                    x = c * (1 - Math.abs((h / 60) % 2 - 1)),
+                    m = l - c/2,
+                    r = 0,
+                    g = 0,
+                    b = 0;
+                
+                if (0 <= h && h < 60) {
+                    r = c; g = x; b = 0;  
+                } else if (60 <= h && h < 120) {
+                    r = x; g = c; b = 0;
+                } else if (120 <= h && h < 180) {
+                    r = 0; g = c; b = x;
+                } else if (180 <= h && h < 240) {
+                    r = 0; g = x; b = c;
+                } else if (240 <= h && h < 300) {
+                    r = x; g = 0; b = c;
+                } else if (300 <= h && h < 360) {
+                    r = c; g = 0; b = x;
+                }
+                r = Math.round((r + m) * 255);
+                g = Math.round((g + m) * 255);
+                b = Math.round((b + m) * 255);
+
+                return rgb = [r, g, b];
+            }
+            function rgbToHex (rgb) {   
+                var red = intToHex(rgb[0]);
+                var green = intToHex(rgb[1]);
+                var blue = intToHex(rgb[2]);
+                return '#'+red+green+blue;
+            }
+            function intToHex (number) { 
+                var hex = Number(number).toString(16);
+                if (hex.length < 2) {
+                    hex = "0" + hex;
+                }
+                return hex;
+            };
+        </script>
+     </body>
+  </html>
