@@ -2,17 +2,17 @@
 
 # DISCIPLINA DE COMPUTAÇÃO GRÁFICA
 ### TRABALHO DE INTERPOLAÇÃO DE CORES
-##### KEYWORDS: INTERPOLAÇÃO, LERP, RGB, HSL
+##### KEYWORDS: INTERPOLAÇÃO, LERP, RGB, HSL, JAVASCRIPT
 
 
 ### function LERP RGB
 ```
-/*
-    @param colorRGB = [red, green, blue]
-    @param colorRGB = [red, green, blue]
-    @param number
-
-    @return colorRGB = [red, green, blue]
+/**
+*   Interpolation two RGB color
+*   @param {Array} colorRGB - array of color RGB[red, green, blue]
+*   @param {Array} colorRGB - array of color RGB[red, green, blue]
+*   @param {number} factor - factor of interpalation
+*   @return {Array} colorRGB - array of color RGB[red, green, blue]
 */
 function lerp(color1, color2, factor){
     let r = parseInt(color1[0] + (color2[0]-color1[0])*factor);
@@ -24,12 +24,12 @@ function lerp(color1, color2, factor){
 ```
 ### function LERP HSL
 ```
-/*
-    @param colorHSL = [hue, saturation, ligthless]
-    @param colorHSL = [hue, saturation, ligthless]
-    @param number
-    
-    @return colorHSL = [hue, saturation, ligthless]
+/**
+*   Interpolation two HSL color
+*   @param {Array} colorHSL - array of color HSL[hue, saturation, ligthless]
+*   @param {Array} colorHSL - array of color HSL[hue, saturation, ligthless]
+*   @param {number} factor - factor of interpalation
+*   @return {Array} colorHSL - array of color HSL[hue, saturation, ligthless]
 */
 function lerp(color1, color2, factor){
     let h = parseInt(color1[0] + (color2[0]-color1[0])*factor);
@@ -41,10 +41,10 @@ function lerp(color1, color2, factor){
 ```
 ### function HSL to RGB
 ```
-/*
-    @param colorHSL = [hue, saturation, ligthless]
-    
-    @return colorRGB = [red, green, blue]
+/**
+*   Convert HSL color to RGB color
+*   @param {Array} colorHSL - array of color HSL[hue, saturation, ligthless]
+*   @return {Array} colorRGB - array of color RGB[red, green, blue]
 */
 function hslToRgb(hsl){
     // Must be fractions of 1
@@ -83,10 +83,10 @@ function hslToRgb(hsl){
 ```
 ### function RGB to #HEX
 ```
-/*
-    @param colorRGB = [red, green, blue]
-    
-    return stringColorHEX = '#'+hex+hex+hex
+/**
+*   Convert RGB color to HEXADECIMAL color in string formact
+*   @param {Array} colorRGB - array of color RGB[red, green, blue]
+*   @return {string} colorHEX - return color hexadecimal '#'+hex+hex+hex
 */
 function rgbToHex (rgb) {   
     let red = intToHex(rgb[0]);
@@ -98,10 +98,10 @@ function rgbToHex (rgb) {
 ```
 ### function DEC to HEX
 ```
-/*
-    @param number
-    
-    @return numberHEX = hex
+/**
+*   Convert decimal number to hexadecimal number
+*   @param {number} number
+*   @return {hexadecimal} hex
 */
 function intToHex (number) { 
     let hex = Number(number).toString(16);
