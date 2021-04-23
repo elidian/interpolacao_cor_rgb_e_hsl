@@ -31,23 +31,23 @@
                                         </div>
                                         <div>
                                             <label id="cor3"></label>Qual a cor quadrado inferior esquerdo?</label>
-                                            <p><a>H (0 a 360)</a><input id="h3" type="range" value="240" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh3">250</a></p>
-                                            <p><a>S (0 a 100)</a><input id="s3" type="range" value="66" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos3">250</a></p>
-                                            <p><a>L (0 a 100)</a><input id="l3" type="range" value="66" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol3">250</a></p>
+                                            <p><a>H (0 a 360)</a><input id="h3" type="range" value="240" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh3">240</a></p>
+                                            <p><a>S (0 a 100)</a><input id="s3" type="range" value="66" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos3">66</a></p>
+                                            <p><a>L (0 a 100)</a><input id="l3" type="range" value="66" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol3">66</a></p>
                                         </div>
                                     </td>
                                     <td width="25%" valign="top">
                                         <div>
                                             <label id="cor2"></label>Qual a cor quadrado superior direito?</label>
-                                            <p><a>H (0 a 360)</a><input id="h2" type="range" value="120" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh2">250</a></p>
-                                            <p><a>S (0 a 100)</a><input id="s2" type="range" value="33" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos2">250</a></p>
-                                            <p><a>L (0 a 100)</a><input id="l2" type="range" value="33" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol2">250</a></p>
+                                            <p><a>H (0 a 360)</a><input id="h2" type="range" value="120" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh2">120</a></p>
+                                            <p><a>S (0 a 100)</a><input id="s2" type="range" value="33" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos2">33</a></p>
+                                            <p><a>L (0 a 100)</a><input id="l2" type="range" value="33" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol2">33</a></p>
                                         </div>
                                         <div>
                                             <label id="cor4"></label>Qual a cor quadrado inferior direito?</label>
-                                            <p><a>H (0 a 360)</a><input id="h4" type="range" value="360" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh4">250</a></p>
-                                            <p><a>S (0 a 100)</a><input id="s4" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos4">250</a></p>
-                                            <p><a>L (0 a 100)</a><input id="l4" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol4">250</a></p>
+                                            <p><a>H (0 a 360)</a><input id="h4" type="range" value="360" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh4">360</a></p>
+                                            <p><a>S (0 a 100)</a><input id="s4" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos4">100</a></p>
+                                            <p><a>L (0 a 100)</a><input id="l4" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol4">100</a></p>
                                         </div>
                                     </td>
                                 </tr>
@@ -228,11 +228,11 @@
                 
                 // HUE
                 let hexH;
-                for(x=0; x<100; x++){
+                for(x=0; x<=100; x++){
                     if(hexH)
                         hexH = hexH +', '+rgbToHex(hslToRgb([x*360/100, colorSat, colorLig]));
                     else
-                    hexH = rgbToHex(hslToRgb([x*360/10, colorSat, colorLig]));
+                    hexH = rgbToHex(hslToRgb([x*360/100, colorSat, colorLig]));
                 }
 
                 let h1 = document.querySelector('input[id='+hue+']');
@@ -243,7 +243,7 @@
                 
                 // SATURATION
                 let hexS;
-                for(x=0; x<100; x++){
+                for(x=0; x<=100; x++){
                     if(hexS)
                         hexS = hexS +', '+rgbToHex(hslToRgb([colorHue, x*100/100, colorLig]));
                     else
@@ -258,11 +258,11 @@
                 
                 //LIGTHLESS
                 let hexL;
-                for(x=0; x<100; x++){
+                for(x=0; x<=100; x++){
                     if(hexL)
                         hexL = hexL +', '+rgbToHex(hslToRgb([colorHue, colorSat, x*100/100]));
                     else
-                    hexL = rgbToHex(hslToRgb([colorHue, colorSat, x*100/100]));
+                        hexL = rgbToHex(hslToRgb([colorHue, colorSat, x*100/100]));
                 }
                 
                 let l1 = document.querySelector('input[id='+ligthless+']');

@@ -160,31 +160,9 @@
                 AtualizarColorBar('r2', 'g2', 'b2');
                 AtualizarColorBar('r3', 'g3', 'b3');
                 AtualizarColorBar('r4', 'g4', 'b4');
-
                 LimparTela();
                 Desenhar();
             }
-            function lerp(color1, color2, factor){
-                var r = parseInt(color1[0] + (color2[0]-color1[0])*factor);
-                var g = parseInt(color1[1] + (color2[1]-color1[1])*factor);
-                var b = parseInt(color1[2] + (color2[2]-color1[2])*factor);
-                
-                return rgb = [r, g, b];
-            }
-            function rgbToHex (rgb) {   
-                var red = intToHex(rgb[0]);
-                var green = intToHex(rgb[1]);
-                var blue = intToHex(rgb[2]);
-                return '#'+red+green+blue;
-            }
-            function intToHex (number) { 
-                var hex = Number(number).toString(16);
-                if (hex.length < 2) {
-                    hex = "0" + hex;
-                }
-                return hex;
-            }
-            
             function AtualizarColorBar(red, green, blue) {
                 let colorred1 = Number(document.getElementById(red).value); // pegar a cor RED 1 da barra
                 let colorgreen1 = Number(document.getElementById(green).value); // pegar a cor GREEN 1 da barra
@@ -206,8 +184,27 @@
                 let colorb12 = 'rgb( '+colorred1+', '+ colorgreen1+', 255)';
                 let b1 = document.querySelector('input[id='+blue+']');
                 b1.style.background = 'linear-gradient( to right,'+ colorb11 +', '+ colorb12 +')';
-                b1.style.setProperty("--cor-"+blue, 'rgb( '+colorred1+', '+colorgreen1+', '+colorblue1+')');
+                b1.style.setProperty("--cor-"+blue, 'rgb( '+colorred1+', '+colorgreen1+', '+colorblue1+')');   
+            }
+            function lerp(color1, color2, factor){
+                var r = parseInt(color1[0] + (color2[0]-color1[0])*factor);
+                var g = parseInt(color1[1] + (color2[1]-color1[1])*factor);
+                var b = parseInt(color1[2] + (color2[2]-color1[2])*factor);
                 
+                return rgb = [r, g, b];
+            }
+            function rgbToHex (rgb) {   
+                var red = intToHex(rgb[0]);
+                var green = intToHex(rgb[1]);
+                var blue = intToHex(rgb[2]);
+                return '#'+red+green+blue;
+            }
+            function intToHex (number) { 
+                var hex = Number(number).toString(16);
+                if (hex.length < 2) {
+                    hex = "0" + hex;
+                }
+                return hex;
             }
         </script>
      </body>

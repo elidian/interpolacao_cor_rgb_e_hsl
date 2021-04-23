@@ -79,7 +79,7 @@
 
                 contexto.beginPath();
                 for(var i = 0; i < qnt; i++){
-                    contexto.fillStyle = rgbToHex(lerp(rgb1, rgb2, i/(qnt-1)));
+                    contexto.fillStyle = lerp(rgb1, rgb2, i/(qnt-1));
                     contexto.fillRect( dist , dist+(aux+height)*i, width, height);
                 }
                 contexto.fill();
@@ -110,20 +110,7 @@
                 var g = parseInt(color1[1] + (color2[1]-color1[1])*factor);
                 var b = parseInt(color1[2] + (color2[2]-color1[2])*factor);
                 
-                return rgb = [r, g, b];
-            }
-            function rgbToHex (rgb) {   
-                var red = intToHex(rgb[0]);
-                var green = intToHex(rgb[1]);
-                var blue = intToHex(rgb[2]);
-                return '#'+red+green+blue;
-            }
-            function intToHex (number) { 
-                var hex = Number(number).toString(16);
-                if (hex.length < 2) {
-                    hex = "0" + hex;
-                }
-                return hex;
+                return 'rgb( '+r+', '+g+', '+b+')';
             }
             function AtualizarColorBar(red, green, blue) {
                 let colorred1 = Number(document.getElementById(red).value); // pegar a cor RED 1 da barra

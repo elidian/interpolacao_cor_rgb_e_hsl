@@ -28,9 +28,9 @@
                             </div>
                             <div>
                                 <label id="cor2">Qual a cor do segundo quadrado?</label>
-                                <p><a>H (0 a 360)</a><input id="h2" type="range" value="360" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh2">250</a></p>
-                                <p><a>S (0 a 100)</a><input id="s2" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos2">250</a></p>
-                                <p><a>L (0 a 100)</a><input id="l2" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol2">250</a></p>
+                                <p><a>H (0 a 360)</a><input id="h2" type="range" value="360" min="0" max="360" oninput="Atualizar(this.id, this.value)"><a id="demoh2">360</a></p>
+                                <p><a>S (0 a 100)</a><input id="s2" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demos2">100</a></p>
+                                <p><a>L (0 a 100)</a><input id="l2" type="range" value="100" min="0" max="100" oninput="Atualizar(this.id, this.value)"><a id="demol2">100</a></p>
                             </div>
                             <div>
                                 <label for="quantity">Qual o número de quadrado internos verticais? (entre 0 and 100):</label>
@@ -169,11 +169,11 @@
                 
                 // HUE
                 let hexH;
-                for(x=0; x<100; x++){
+                for(x=0; x<=100; x++){
                     if(hexH)
                         hexH = hexH +', '+rgbToHex(hslToRgb([x*360/100, colorSat, colorLig]));
                     else
-                    hexH = rgbToHex(hslToRgb([x*360/10, colorSat, colorLig]));
+                    hexH = rgbToHex(hslToRgb([x*360/100, colorSat, colorLig]));
                 }
 
                 let h1 = document.querySelector('input[id='+hue+']');
@@ -184,7 +184,7 @@
                 
                 // SATURATION
                 let hexS;
-                for(x=0; x<100; x++){
+                for(x=0; x<=100; x++){
                     if(hexS)
                         hexS = hexS +', '+rgbToHex(hslToRgb([colorHue, x*100/100, colorLig]));
                     else
@@ -199,7 +199,7 @@
                 
                 //LIGTHLESS
                 let hexL;
-                for(x=0; x<100; x++){
+                for(x=0; x<=100; x++){
                     if(hexL)
                         hexL = hexL +', '+rgbToHex(hslToRgb([colorHue, colorSat, x*100/100]));
                     else
