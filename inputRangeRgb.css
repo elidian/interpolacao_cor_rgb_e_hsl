@@ -1,12 +1,11 @@
 
 input[type=range] {
-    height: 20px;
     -webkit-appearance: none;
     margin: 10px 0;
     width: 50%;
     height: 20px;
     cursor: pointer;
-    animate: 0.2s;
+    /* animate: 0.2s; */
     box-shadow: 1px 1px 1px #FFEDFF;
     border-radius: 6px;
     border: 1px solid #3F0FFF;
@@ -102,7 +101,7 @@ input[type=range] {
     width: 100%;
     height: 6px;
     cursor: pointer;
-    animate: 0.2s;
+    /* animate: 0.2s; */
     box-shadow: 1px 1px 1px #FFEDFF;
     background: #3071A9;
     border-radius: 6px;
@@ -121,7 +120,7 @@ input[type=range] {
     width: 100%;
     height: 6px;
     cursor: pointer;
-    animate: 0.2s;
+    /* animate: 0.2s; */
     background: transparent;
     border-color: transparent;
     color: transparent;

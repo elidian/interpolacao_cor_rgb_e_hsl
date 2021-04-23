@@ -13,7 +13,7 @@
         </header>
         <section id="main_a">
             <header style="margin-top: 5px; margin-bottom: 5px;">
-                <link rel="stylesheet" type="text/css" href="inputRangeCH.css">
+                <link rel="stylesheet" type="text/css" href="inputRangeHsl.css">
             </header>
             <article style="margin-top: 10px; margin-bottom: 10px;">
                 <p>Item A) HSL</p>
@@ -109,9 +109,7 @@
                 let h = parseInt(color1[0] + (color2[0]-color1[0])*factor);
                 let s = parseInt(color1[1] + (color2[1]-color1[1])*factor);
                 let l = parseInt(color1[2] + (color2[2]-color1[2])*factor);
-                //console.log('h: '+h)
-                //console.log('s: '+s)
-                //console.log('l: '+l)
+                
                 return hsl = [h, s, l];
             }
             // @param HSL
@@ -167,7 +165,6 @@
                 let colorHue = Number(document.getElementById(hue).value); // pegar a cor RED 1 da barra
                 let colorSat = Number(document.getElementById(saturation).value); // pegar a cor GREEN 1 da barra
                 let colorLig = Number(document.getElementById(ligthless).value); // pegar a cor BLUE 1 da barra
-                //console.log('red: '+colorHue+' -gren: '+colorSat+' -blue: '+colorLig);
                 
                 // HUE
                 let hexH;
@@ -183,7 +180,6 @@
                 
                 let hexH3 = rgbToHex(hslToRgb(colorHue, colorSat, colorLig));
                 h1.style.setProperty("--cor-"+hue, hexH3);
-                //console.log('h1.b: '+h1.style.background);
                 
                 // SATURATION
                 let hexS;
@@ -199,7 +195,6 @@
                 
                 let hexS3 = rgbToHex(hslToRgb(colorHue, colorSat, colorLig));
                 s1.style.setProperty("--cor-"+saturation, hexS3);
-                //console.log('s1.b: '+s1.style.background);
                 
                 //LIGTHLESS
                 let hexL;
@@ -215,8 +210,6 @@
                 
                 let rgbL3 = hslToRgb(colorHue, colorSat, colorLig);
                 l1.style.setProperty("--cor-"+ligthless, 'rgb('+rgbL3[0]+', '+rgbL3[1]+', '+rgbL3[2]+')');
-                //console.log('l1.b: '+l1.style.background);
-                
             }
         </script>
      </body>
