@@ -106,14 +106,14 @@
                 Desenhar();
             }
             function lerp(color1, color2, factor){
-                console.log("c1: "+color1[0]);
-                console.log("c2: "+color2[0]);
+                //console.log("c1: "+color1[0]);
+                //console.log("c2: "+color2[0]);
                 var r = parseInt(color1[0] + (color2[0]-color1[0])*factor);
-                console.log("R: "+r);
+                //console.log("R: "+r);
                 var g = parseInt(color1[1] + (color2[1]-color1[1])*factor);
-                console.log("R: "+g);
+                //console.log("R: "+g);
                 var b = parseInt(color1[2] + (color2[2]-color1[2])*factor);
-                console.log("R: "+b);
+                //console.log("R: "+b);
                 
                 return rgb = [r, g, b];
             }
@@ -134,28 +134,28 @@
                 let colorred1 = Number(document.getElementById(red).value); // pegar a cor RED 1 da barra
                 let colorgreen1 = Number(document.getElementById(green).value); // pegar a cor GREEN 1 da barra
                 let colorblue1 = Number(document.getElementById(blue).value); // pegar a cor BLUE 1 da barra
-                console.log('red: '+colorred1+' -gren: '+colorgreen1+' -blue: '+colorblue1);
+                //console.log('red: '+colorred1+' -gren: '+colorgreen1+' -blue: '+colorblue1);
                 
                 let colorr11 = 'rgb( 0, '+ colorgreen1+','+ colorblue1+')';
                 let colorr12 = 'rgb( 255, '+ colorgreen1+','+ colorblue1+')';
                 let r1 = document.querySelector('input[id='+red+']');
                 r1.style.background = 'linear-gradient( to right, '+ colorr11 +', '+ colorr12 +')';
                 r1.style.setProperty("--cor-"+red, 'rgb( '+colorred1+', '+colorgreen1+', '+colorblue1+')');
-                console.log('r1.b: '+r1.style.background);
+                //console.log('r1.b: '+r1.style.background);
 
                 let colorg11 = 'rgb( '+colorred1+', 0, '+ colorblue1+')';
                 let colorg12 = 'rgb( '+colorred1+', 255, '+ colorblue1+')';
                 let g1 = document.querySelector('input[id='+green+']');
                 g1.style.background = 'linear-gradient( to right, '+ colorg11 +', '+ colorg12 +')';
                 g1.style.setProperty("--cor-"+green, 'rgb( '+colorred1+', '+colorgreen1+', '+colorblue1+')');
-                console.log('g1.b: '+g1.style.background);
+                //console.log('g1.b: '+g1.style.background);
                 
                 let colorb11 = 'rgb( '+colorred1+', '+ colorgreen1+', 0)';
                 let colorb12 = 'rgb( '+colorred1+', '+ colorgreen1+', 255)';
                 let b1 = document.querySelector('input[id='+blue+']');
                 b1.style.background = 'linear-gradient( to right,'+ colorb11 +', '+ colorb12 +')';
                 b1.style.setProperty("--cor-"+blue, 'rgb( '+colorred1+', '+colorgreen1+', '+colorblue1+')');
-                console.log('b1.b: '+b1.style.background);
+                //console.log('b1.b: '+b1.style.background);
             }
         </script>
      </body>
