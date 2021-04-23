@@ -1,0 +1,218 @@
+
+input[type=range] {
+    height: 20px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 50%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[id=r1] {
+    --cor-r1: #ffffff;
+    /* width: 25%; */
+    height: 20px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #FFEDFF;
+    background: linear-gradient( to right, rgb(0, 0, 0), rgb(255, 0, 0) );
+    border-radius: 6px;
+    border: 1px solid #3F0FFF;
+  }
+  input[id=g1] {
+    --cor-g1: #ffffff;
+    /* width: 25%; */
+    height: 20px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #FFEDFF;
+    background: linear-gradient( to right, rgb(0, 0, 0), rgb(0, 255, 0) );
+    border-radius: 6px;
+    border: 1px solid #3F0FFF;
+  }
+  input[id=b1] {
+    --cor-b1: #ffffff;
+    /* width: 25%; */
+    height: 20px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #FFEDFF;
+    background: linear-gradient( to right, rgb(0, 0, 0), rgb(0, 0, 255) );
+    border-radius: 6px;
+    border: 1px solid #3F0FFF;
+  }
+  
+  input[id=r2] {
+    --cor-r2: #ffffff;
+    /* width: 25%; */
+    height: 20px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #FFEDFF;
+    background: linear-gradient( to right, rgb(0, 0, 0), rgb(255, 0, 0) );
+    border-radius: 6px;
+    border: 1px solid #3F0FFF;
+  }
+  input[id=g2] {
+    --cor-g2: #ffffff;
+    /* width: 25%; */
+    height: 20px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #FFEDFF;
+    background: linear-gradient( to right, rgb(0, 0, 0), rgb(0, 255, 0) );
+    border-radius: 6px;
+    border: 1px solid #3F0FFF;
+  }
+  input[id=b2] {
+    --cor-b2: #ffffff;
+    /* width: 25%; */
+    height: 20px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #FFEDFF;
+    background: linear-gradient( to right, rgb(0, 0, 0), rgb(0, 0, 255) );
+    border-radius: 6px;
+    border: 1px solid #3F0FFF;
+  }
+  /* marcador da barra 
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px; 
+    background: #000000; 
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: 0px;
+  }
+  */
+   /* marcador da barra R1 */
+  input[id=r1]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px; 
+    background: var(--cor-r1); 
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1px;
+  }
+  /* marcador da barra R1 */
+  input[id=g1]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px; 
+    background: var(--cor-g1); 
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1px;
+  }
+  /* marcador da barra R1 */
+  input[id=b1]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px; 
+    background: var(--cor-b1); 
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1px;
+  }
+  /* marcador da barra R1 */
+  input[id=r2]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px; 
+    background: var(--cor-r2); 
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1px;
+  }
+  /* marcador da barra R1 */
+  input[id=g2]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px; 
+    background: var(--cor-g2); 
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1px;
+  }
+  /* marcador da barra R1 */
+  input[id=b2]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px; 
+    background: var(--cor-b2); 
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1px;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #FFEDFF;
+    background: #3071A9;
+    border-radius: 6px;
+    border: 1px solid #3F0FFF;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 40px;
+    width: 15px;
+    border-radius: 5px;
+    background: #BFEAFF;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #3071A9;
+    border: 1px solid #3F0FFF;
+    border-radius: 12px;
+    box-shadow: 1px 1px 1px #FFEDFF;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #3071A9;
+    border: 1px solid #3F0FFF;
+    border-radius: 12px;
+    box-shadow: 1px 1px 1px #FFEDFF;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 40px;
+    width: 15px;
+    border-radius: 5px;
+    background: #BFEAFF;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #3071A9;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #3071A9;
+  }
