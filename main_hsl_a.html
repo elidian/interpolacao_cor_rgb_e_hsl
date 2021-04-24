@@ -105,6 +105,7 @@
                 LimparTela();
                 Desenhar();
             }
+            // LERP HSL
             function lerp(color1, color2, factor){
                 let h = parseInt(color1[0] + (color2[0]-color1[0])*factor);
                 let s = parseInt(color1[1] + (color2[1]-color1[1])*factor);
@@ -139,7 +140,7 @@
                     r = 0; g = x; b = c;
                 } else if (240 <= h && h < 300) {
                     r = x; g = 0; b = c;
-                } else if (300 <= h && h < 360) {
+                } else if (300 <= h && h <= 360) {
                     r = c; g = 0; b = x;
                 }
                 r = Math.round((r + m) * 255);
@@ -165,14 +166,14 @@
                 let colorHue = Number(document.getElementById(hue).value); // pegar a cor RED 1 da barra
                 let colorSat = Number(document.getElementById(saturation).value); // pegar a cor GREEN 1 da barra
                 let colorLig = Number(document.getElementById(ligthless).value); // pegar a cor BLUE 1 da barra
-                
+                let qt = 100;
                 // HUE
                 let hexH;
-                for(x=0; x<=100; x++){
+                for(x=0; x<qt; x++){
                     if(hexH)
-                        hexH = hexH +', '+rgbToHex(hslToRgb([x*360/100, colorSat, colorLig]));
+                        hexH = hexH +', '+rgbToHex(hslToRgb([x*360/(qt-1), colorSat, colorLig]));
                     else
-                    hexH = rgbToHex(hslToRgb([x*360/100, colorSat, colorLig]));
+                    hexH = rgbToHex(hslToRgb([x*360/(qt-1), colorSat, colorLig]));
                 }
 
                 let h1 = document.querySelector('input[id='+hue+']');
@@ -183,11 +184,11 @@
                 
                 // SATURATION
                 let hexS;
-                for(x=0; x<=100; x++){
+                for(x=0; x<qt; x++){
                     if(hexS)
-                        hexS = hexS +', '+rgbToHex(hslToRgb([colorHue, x*100/100, colorLig]));
+                        hexS = hexS +', '+rgbToHex(hslToRgb([colorHue, x*100/(qt-1), colorLig]));
                     else
-                    hexS = rgbToHex(hslToRgb([colorHue, x*100/100, colorLig]));
+                    hexS = rgbToHex(hslToRgb([colorHue, x*100/(qt-1), colorLig]));
                 }
                 
                 let s1 = document.querySelector('input[id='+saturation+']');
@@ -198,11 +199,11 @@
                 
                 //LIGTHLESS
                 let hexL;
-                for(x=0; x<=100; x++){
+                for(x=0; x<qt; x++){
                     if(hexL)
-                        hexL = hexL +', '+rgbToHex(hslToRgb([colorHue, colorSat, x*100/100]));
+                        hexL = hexL +', '+rgbToHex(hslToRgb([colorHue, colorSat, x*100/(qt-1)]));
                     else
-                    hexL = rgbToHex(hslToRgb([colorHue, colorSat, x*100/100]));
+                    hexL = rgbToHex(hslToRgb([colorHue, colorSat, x*100/(qt-1)]));
                 }
                 
                 let l1 = document.querySelector('input[id='+ligthless+']');
